@@ -1,0 +1,197 @@
+#include <iostream>
+#include <string.h>
+#include <Windows.h>
+
+using namespace std;
+int credit,bet;
+void zar();
+class Aparat
+{
+public:
+    string culoare;
+int an;
+
+
+};
+
+void am18ani(char cnp[15],int &an, int &varsta)
+{
+    cout<<"Introduceti cnp: ";
+    cin.getline(cnp,15);
+    cin.getline(cnp,15);
+    an=(cnp[1]-'0')*10+(cnp[2]-'0');
+
+    if(an<=23)
+        an+=2000;
+
+    else
+        an+=1900;
+
+
+
+    varsta=2023-an;
+}
+
+int main()
+{
+
+    Aparat egt;
+    Aparat novomatic;
+    Aparat italian;
+    egt.an=2016;
+    egt.culoare="negru";
+    novomatic.an=1990;
+    novomatic.culoare="gri";
+    italian.an=2018;
+    italian.culoare="verde";
+    char cnp[14];
+    int i=1;
+
+
+
+    int optiune,an,varsta,aparate1;
+
+    cout<<"========================================================================================================================";
+    cout<<"                                          BINE ATI VENIT LA GONZO BET!"<<endl;
+    cout<<"========================================================================================================================";
+    cout<<"Ai implinit 18 ani?"<<endl;
+    cout<<"1.Da, am implinit 18 ani."<<endl;
+    cout<<"2.Nu, nu am 18 ani."<<endl;
+    cout<<"3.Nu am buletinul la mine, dar am poza."<<endl<<endl;
+
+
+    cout<<" optiune: ";
+    cin>>optiune;
+
+
+    switch(optiune)
+    {
+    case 1:
+        system("cls");
+        am18ani(cnp,an,varsta);
+
+
+        if(varsta<18)
+            cout<<"Nu ai 18 ani, nu te pot lasa in cazino !"<<endl;
+        else
+        { if (strlen(cnp)!=13)
+        cout<<"NU este valid cnp"<<endl;
+        else
+{
+
+            cout<<"                                               <===================>"<<endl;
+            cout<<"                                                  | Poti intra! |"<<endl;
+            cout<<"========================================================================================================================"<<endl;
+           cout<<"       |Alege la ce aparat joci|"<<endl;
+          cout<<"========================================================================================================================"<<endl;
+           cout<<"1.Vreau aparat egt"<<endl;
+           cout<<"2.Vreau aparat novomatic"<<endl;
+           cout<<"3.Vreau aparat italian"<<endl;
+           cout<<"4.Am venit doar sa iau alune gratis"<<endl;
+           cin>>aparate1;
+}
+        }
+        break;
+    case 2:
+        system("cls");
+        cout<<"Nu poti intra in cazino !";
+        break;
+    case 3:
+        system("cls");
+        cout<<"Nu poti intra in cazino,poza e facuta in photoshop !";
+        break;
+    default:
+        break;
+    }
+
+
+   switch(aparate1){
+   case 1:
+        system("cls");
+   cout<<"Cati bani doriti sa jucati ?"<<" "<<"Introduceti bancnota"<<" ";
+   cin>>credit;
+   cout<<"Pe ce bet doriti sa jucati? ";
+      cin>>bet;
+      zar();
+   if(credit<bet)
+    cout<<"Nu poti avea betul mai mare decat creditul "<<endl;
+   cout<<"Aveti "<<credit<<" monede"<<endl;
+   cout<<"Adaugati bani sau apelelati un *camatar* sa va imprumute"<<endl;
+    while(true){
+   cout<<"adaugati bani :";
+   cin>>credit;
+   cout<<"betul dv:";
+   cin>>bet;
+   zar();
+   }
+   break;
+   case 2:
+     system("cls");
+   cout<<"Cati bani doriti sa jucati ?  "<<" "<<"Introduceti bancnota  "<<" ";
+   cin>>credit;
+   cout<<"Pe ce bet doriti sa jucati?  ";
+      cin>>bet;
+      zar( );
+   if(credit<bet)
+       cout<<"Nu poti avea betul mai mare decat creditul "<<endl;
+   cout<<"Aveti "<<credit<<" monede"<<endl;
+   cout<<"Adaugati bani sau apelelati un *camatar* sa va imprumute"<<endl;
+   while(true){
+   cout<<"adaugati bani :";
+   cin>>credit;
+   cout<<"betul dv:";
+   cin>>bet;
+   zar();
+   }
+   break;
+   case 3:
+        system("cls");
+   cout<<"Cati bani doriti sa jucati ?"<<" "<<"Introduceti bancnota"<<" ";
+   cin>>credit;
+   cout<<"Pe ce bet doriti sa jucati?";
+   cin>>bet;
+   zar();
+   if(credit<bet)
+    cout<<"Nu poti avea betul mai mare decat creditul "<<endl;
+   cout<<"Aveti "<<credit<<" monede"<<endl;
+   cout<<"Adaugati bani sau apelelati un *camatar* sa va imprumute"<<endl;
+   break;
+    while(true){
+   cout<<"adaugati bani :";
+   cin>>credit;
+   cout<<"betul dv:";
+   cin>>bet;
+   zar();
+   }
+   case 4:system("cls");
+   cout<<"Va rugam sa parasiti incinta,nu mai veniti pe tura mea!";
+   break;
+   }
+}
+void zar( ){
+while(true){
+        int f;
+        cout<<"Alege un numar intre 1 si 6";
+        cin>>f;
+        if(f<=0 || f>10)
+            cout<<"Nu ai ales numar intre 1 si 6";
+    while(f<=0 || f>10 );
+    int zar1;
+    zar1=rand()%6+1;
+
+    if(zar1==f){
+
+        credit=credit+(bet*20)-bet;
+ cout<<"Ai castigat  "<<bet*20<<endl;
+ cout<<"Noul credit este  "<<credit<<endl;}
+ else{
+    credit=credit-bet;
+    cout<<"Ai pierdut!"<<endl;
+ }
+    cout<<"noul credit este "<<credit<<endl;
+if(credit==0)
+    break;
+}
+
+}
+
